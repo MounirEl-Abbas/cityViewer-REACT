@@ -16,7 +16,7 @@ const CountriesContextProvider = ({ children }) => {
     );
     const data = await response.json();
     console.log(`data`, data);
-    // setCountries(data);
+    setCountries(data);
     setIsLoading(false);
   };
   useEffect(() => {
