@@ -1,0 +1,63 @@
+.sidemenu {
+  width: 100%;
+  height: 100%;
+  transition: 0.3s all linear;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #dedede;
+  transform: translateX(-100%);
+  display: flex;
+  flex-flow: column;
+  z-index: 5;
+  position: fixed;
+  &-open {
+    transform: translateX(0%);
+  }
+  &-header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px 20px 60px;
+    button {
+      border: none;
+      background: transparent;
+      font-size: 24px;
+      color: red;
+    }
+  }
+  &-nav-btns {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: column nowrap;
+    margin: 50px 0;
+    height: 40%;
+    margin-left: 20px;
+    font-size: 2rem;
+
+    li {
+      border-bottom: 4px solid transparent;
+
+      a {
+        text-decoration: none;
+        color: $clr--navbtns;
+        &.active {
+          font-weight: 600;
+          border-bottom: 4px solid $secondary-color;
+        }
+      }
+    }
+  }
+  &-btns {
+    @include flexCenter(row);
+    justify-content: space-between;
+    width: 200px;
+    margin: auto;
+    @extend %navButtons;
+  }
+  @media (min-width: 768px) {
+    display: none;
+  }
+}

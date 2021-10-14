@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap");
+
+$ff-primary: "Montserrat", sans-serif;
+$ff-secondary: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+$clr--white: #fff;
+$light-color: #efefef;
+$dark-color: #151515;
+$title-color: #1e1e1e;
+$clr--navbtns: #324d67;
+$clr--text: #617d98;
+$secondary-color: #e77e00;
+
+//Home Page -- Guarantee section
+$clr--bg: #eaded7;
+$clr--article-text: #453227;
+$clr--article-bg: #c5a491;
+
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+//Common Homepage buttons
+%homeButton {
+  background-color: $secondary-color;
+  color: white;
+  text-transform: uppercase;
+  border: 3px solid $secondary-color;
+  padding: 0.8rem;
+  font-family: $ff-secondary;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    background-color: transparent;
+    color: $secondary-color;
+  }
+}
+
+// Login/logout button
+%login-logout-btn {
+  button {
+    border: none;
+    border-radius: 5px;
+    background-color: $secondary-color;
+    color: white;
+    text-transform: uppercase;
+    padding: 0.6rem 2rem 0.6rem 0.6rem;
+    cursor: pointer;
+    &:hover {
+      background-color: darken($secondary-color, 10%);
+    }
+  }
+  svg {
+    position: absolute;
+    right: 5px;
+    font-size: 1.4rem;
+    top: 0;
+    bottom: 2px;
+    margin: auto;
+    color: white;
+  }
+}
+
+/* Wishlist - Login section -- Navbar & Sidemenu*/
+%navButtons {
+  display: flex;
+  width: 150px;
+  /* Wish List */
+  a {
+    text-decoration: none;
+    color: $clr--navbtns;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    &:hover {
+      color: lighten($clr--navbtns, 20%);
+    }
+    svg {
+      font-size: 30px;
+    }
+    span {
+      position: absolute;
+      top: -7px;
+      right: -7px;
+      height: 20px;
+      width: 20px;
+      text-align: center;
+      background-color: $secondary-color;
+      border-radius: 50%;
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    p {
+      font-size: 12px;
+      position: absolute;
+      bottom: -8px;
+    }
+  }
+  .log-btns {
+    /* Log-in Button */
+    .login-btn {
+      position: relative;
+      animation: bounce 0.7s infinite alternate;
+      @keyframes bounce {
+        to {
+          transform: scale(1.1);
+        }
+      }
+      @extend %login-logout-btn;
+    }
+    /* Logout button */
+    .user-info {
+      width: fit-content;
+      @include flexCenter(column);
+      aside {
+        text-align: center;
+        img {
+          width: 40px;
+        }
+      }
+      .logout-btn {
+        position: relative;
+        @extend %login-logout-btn;
+        button {
+          padding: 0.5rem 2rem 0.4rem 0.6rem;
+          font-size: 12px;
+        }
+        svg {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

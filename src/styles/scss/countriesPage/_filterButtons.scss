@@ -1,0 +1,57 @@
+.btns-container {
+  margin: 4rem auto;
+  width: 100%;
+}
+.search-container {
+  max-width: 650px;
+  position: relative;
+  margin: auto;
+  width: 90%;
+  span {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    font-size: 30px;
+  }
+  input {
+    margin: auto;
+    width: 100%;
+    padding: 10px 0 10px 30px;
+  }
+}
+.filters-container {
+  margin: auto;
+  max-width: 650px;
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 10px;
+  height: 80px;
+  align-items: flex-end;
+  position: relative;
+
+  .toggle-btns {
+    position: absolute;
+    right: 5%;
+
+    button {
+      font-size: 16px;
+      background-color: transparent;
+      padding: 1px 1px 0 1px;
+      margin-right: 5px;
+      border: 2px solid black;
+      border-radius: 5px;
+      &.active {
+        color: $clr--white;
+        background-color: $clr--navbtns;
+      }
+    }
+  }
+  p {
+    font-size: 1.3rem;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: -3rem;
+    left: 0;
+  }
+}

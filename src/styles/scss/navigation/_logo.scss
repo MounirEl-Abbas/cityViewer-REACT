@@ -1,0 +1,23 @@
+.logo {
+  position: relative;
+  color: #1e1e1e;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
+  svg {
+    font-size: 60px;
+  }
+  h3 {
+    font-size: 20px;
+    position: absolute;
+    bottom: -20px;
+    span:not(#span-color) {
+      font-size: 30px;
+      text-transform: uppercase;
+    }
+  }
+  h3 #span-color {
+    color: $secondary-color;
+  }
+}
