@@ -5,7 +5,8 @@ import { HiMenuAlt1 } from "react-icons/hi";
 import { useCountriesContext } from "../../context/countriesContext";
 
 const FilterButtons = () => {
-  const { isShowMoreInfo, setIsShowMoreInfo, sortBy } = useCountriesContext();
+  const { isShowMoreInfo, setIsShowMoreInfo, sortCountries } =
+    useCountriesContext();
 
   return (
     <section className="btns-container">
@@ -36,7 +37,7 @@ const FilterButtons = () => {
 
         <form>
           <label htmlFor="sort">Sort By: </label>
-          <select onChange={(e) => sortBy(e)} name="sort">
+          <select onChange={(e) => sortCountries(e)} name="sort">
             <option value="alpha-ascending">Name (a-z)</option>
             <option value="alpha-descending">Name (z-a)</option>
             <option value="pop-ascending">Population (Lowest)</option>
