@@ -29,7 +29,7 @@ const Countries = () => {
                       {country.capital[0]}
                     </p>
                     <p>
-                      <span>Population: </span>
+                      <span>Population: </span>y{" "}
                       {country.population.toLocaleString()}
                     </p>
                     <p>
