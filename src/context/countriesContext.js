@@ -3,38 +3,92 @@ import React, { useContext, useState, useEffect } from "react";
 const CountriesContext = React.createContext();
 
 const CountriesContextProvider = ({ children }) => {
+  const [value, setValue] = useState("");
+
   const [isLoading, setIsLoading] = useState(true);
-  const [countries, setCountries] = useState("");
+  const [countries, setCountries] = useState([]);
   const [isShowMoreInfo, setIsShowMoreInfo] = useState(false);
+  const [countriesSorted, setCountriesSorted] = useState(false);
 
-  const [filterOption, setFilterOption] = useState("alpha-ascending");
-
-  /* Get API */
+  /*************** Initial Render -- Get API *******************/
   const fetchCountries = async () => {
     const response = await fetch(
-      `https://restcountries.com/v3.1/alpha?codes=FRA,DEU,AUT,CHE,ITA&fields=name,capital,population,flags,currencies,languages`
+      `https://restcountries.com/v3.1/alpha?codes=FRA,DEU,AUT,CHE,ITA&fields=name,capital,population,flags`
     );
     const data = await response.json();
-    console.log(`data`, data);
     setCountries(data);
+    console.log(`data`, data);
     setIsLoading(false);
   };
   useEffect(() => {
     fetchCountries();
   }, []);
-  /***********************************/
+  /*********************************************************/
 
-  const sortBy = (e) => {
-    console.log(`e.target`, e.target.value);
-    const filterSelected = e.target.value;
-    if (filterSelected === "alpha-ascending") {
+  /*************** Search *******************/
+  const searchCountry = async (value) => {
+    const response = await fetch(
+      `https://restcountries.com/v3.1/alpha?codes=FRA,DEU,AUT,CHE,ITA&fields=name,capital,population,flags`
+    );
+    const data = await response.json();
+    let searchResults = data.filter(
+      (country) => country.name.common.toLowerCase().indexOf(value) !== -1
+    );
+    setCountries(searchResults);
+  };
+  useEffect(() => {
+    searchCountry(value);
+  }, [value]);
+  /* Anytime 'value' state changes, get API data, filter by value - case insensitive*/
+
+  /*************** Selection Options, sort by *******************/
+  const sortCountries = (e) => {
+    setIsLoading(true);
+    let sortBy = e.target.value; //user choice
+    switch (sortBy) {
+      case "alpha-ascending":
+        sortByAlphaAscending();
+        break;
+      case "alpha-descending":
+        sortByAlphaDescending();
+        break;
+      case "pop-ascending":
+        sortByPopulationAscending();
+        break;
+      case "pop-descending":
+        sortByPopulationDescending();
+        break;
+      default:
+        sortByAlphaAscending();
+        break;
     }
-    if (filterSelected === "alpha-descending") {
-    }
-    if (filterSelected === "pop-ascending") {
-    }
-    if (filterSelected === "pop-descending") {
-    }
+    setCountriesSorted(!countriesSorted); //Trigger re-render after sorting
+    setIsLoading(false);
+  };
+  //Sorting Options
+  const sortByAlphaAscending = () => {
+    let sortedData = countries.sort((a, b) => {
+      let textA = a.name.common.toUpperCase();
+      let textB = b.name.common.toUpperCase();
+      return textA < textB ? -1 : textA > textB ? 1 : 0;
+    });
+    setCountries(sortedData);
+  };
+  const sortByAlphaDescending = () => {
+    let sortedData = countries.sort((a, b) => {
+      let textA = a.name.common.toUpperCase();
+      let textB = b.name.common.toUpperCase();
+      return textA > textB ? -1 : textA < textB ? 1 : 0;
+    });
+    setCountries(sortedData);
+  };
+  const sortByPopulationAscending = () => {
+    let sortedData = countries.sort((a, b) => a.population - b.population);
+    setCountries(sortedData);
+  };
+  const sortByPopulationDescending = () => {
+    let sortedData = countries.sort((a, b) => b.population - a.population);
+    setCountries(sortedData);
   };
 
   return (
@@ -44,7 +98,9 @@ const CountriesContextProvider = ({ children }) => {
         isLoading,
         isShowMoreInfo,
         setIsShowMoreInfo,
-        sortBy,
+        sortCountries,
+        value,
+        setValue,
       }}
     >
       {children}
