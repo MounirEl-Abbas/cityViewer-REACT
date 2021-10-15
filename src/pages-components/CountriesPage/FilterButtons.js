@@ -5,8 +5,14 @@ import { HiMenuAlt1 } from "react-icons/hi";
 import { useCountriesContext } from "../../context/countriesContext";
 
 const FilterButtons = () => {
-  const { isShowMoreInfo, setIsShowMoreInfo, sortCountries } =
-    useCountriesContext();
+  const {
+    isShowMoreInfo,
+    setIsShowMoreInfo,
+    sortCountries,
+    countries,
+    value,
+    setValue,
+  } = useCountriesContext();
 
   return (
     <section className="btns-container">
@@ -14,7 +20,12 @@ const FilterButtons = () => {
         <span>
           <BiSearch />
         </span>
-        <input type="search" placeholder="Search" />
+        <input
+          type="search"
+          placeholder="Search country..."
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
       </div>
 
       <div className="filters-container">
@@ -33,11 +44,18 @@ const FilterButtons = () => {
           </button>
         </div>
 
-        <p># Countries Found</p>
+        <p>{countries.length} Countries Found</p>
 
         <form>
           <label htmlFor="sort">Sort By: </label>
-          <select onChange={(e) => sortCountries(e)} name="sort">
+          <select
+            defaultValue="empty"
+            onChange={(e) => sortCountries(e)}
+            name="sort"
+          >
+            <option disabled value="empty">
+              Select an option
+            </option>
             <option value="alpha-ascending">Name (a-z)</option>
             <option value="alpha-descending">Name (z-a)</option>
             <option value="pop-ascending">Population (Lowest)</option>

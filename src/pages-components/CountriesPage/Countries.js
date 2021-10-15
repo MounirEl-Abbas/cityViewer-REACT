@@ -30,7 +30,7 @@ const Countries = () => {
                     </p>
                     <p>
                       <span>Population: </span>
-                      {country.population}
+                      {country.population.toLocaleString()}
                     </p>
                     <p>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -42,6 +42,7 @@ const Countries = () => {
             </article>
           );
         })}
+      {countries.length === 0 && <h5>No Search Results...</h5>}
     </section>
   );
 };
