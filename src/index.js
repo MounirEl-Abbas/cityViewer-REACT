@@ -6,6 +6,7 @@ import App from "./App";
 /* Context */
 import NavigationContextProvider from "./context/navigationContext";
 import CountriesContextProvider from "./context/countriesContext";
+import SingleCountryContextProvider from "./context/singleCountryContext";
 
 /* Auth0 */
 import { Auth0Provider } from "@auth0/auth0-react";
@@ -22,7 +23,9 @@ ReactDOM.render(
     >
       <NavigationContextProvider>
         <CountriesContextProvider>
-          <App />
+          <SingleCountryContextProvider>
+            <App />
+          </SingleCountryContextProvider>
         </CountriesContextProvider>
       </NavigationContextProvider>
     </Auth0Provider>

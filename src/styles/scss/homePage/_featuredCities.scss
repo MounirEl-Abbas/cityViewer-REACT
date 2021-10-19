@@ -1,4 +1,5 @@
 .featured-cities {
+  @extend %city-container;
   @include flexCenter(column);
   margin: 6rem auto;
   h2 {
@@ -21,31 +22,6 @@
     }
   }
 
-  article {
-    height: 300px;
-    width: 100%;
-    position: relative;
-    margin: 1rem;
-    padding: 0 1rem;
-
-    img {
-      border-radius: 20px;
-      object-fit: cover;
-      width: 100%;
-      height: 100%;
-    }
-    h4 {
-      position: absolute;
-      bottom: 0;
-      right: 10px;
-      color: $clr--white;
-      font-size: 2rem;
-      background-color: rgba(black, 0.5);
-      padding: 10px;
-      border-radius: 10px 0 20px 0;
-      letter-spacing: 2px;
-    }
-  }
   button {
     @extend %homeButton;
     width: 100px;

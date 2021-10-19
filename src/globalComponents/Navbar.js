@@ -33,7 +33,7 @@ const Navbar = () => {
           </Link>
         </li>
         <li className={`${currentPage === "Explore" ? "active" : ""}`}>
-          <Link to="/all-countries" onClick={(e) => changeCurrentPage(e)}>
+          <Link to="/countries" onClick={(e) => changeCurrentPage(e)}>
             Explore
           </Link>
         </li>
@@ -48,7 +48,7 @@ const Navbar = () => {
           {isAuthenticated ? (
             <div className="user-info">
               <aside>
-                <img src={user.picture} alt={`${user.name}'s picture'`} />
+                <img src={user.picture} alt={`${user.name}'s profile'`} />
                 <h6>{user.name}</h6>
               </aside>
               <div className="logout-btn">

@@ -1,4 +1,6 @@
 /* France */
+import franceFrameworkTrend from "./france/trends/frameworks-trend.png";
+import franceLanguageTrend from "./france/trends/languages-trend.png";
 import paris1 from "./france/paris/paris1.jpg";
 import paris2 from "./france/paris/paris2.jpg";
 import paris3 from "./france/paris/paris3.jpg";
@@ -9,6 +11,8 @@ import nice1 from "./france/nice/nice1.jpg";
 import nice2 from "./france/nice/nice2.jpg";
 import nice3 from "./france/nice/nice3.jpg";
 /* Austria */
+import austriaFrameworkTrend from "./austria/trends/frameworks-trend.png";
+import austriaLanguageTrend from "./austria/trends/languages-trend.png";
 import vienna1 from "./austria/vienna/vienna1.jpg";
 import vienna2 from "./austria/vienna/vienna2.jpg";
 import vienna3 from "./austria/vienna/vienna3.jpg";
@@ -19,6 +23,8 @@ import innsbruck1 from "./austria/innsbruck/innsbruck1.jpg";
 import innsbruck2 from "./austria/innsbruck/innsbruck2.jpg";
 import innsbruck3 from "./austria/innsbruck/innsbruck3.jpg";
 /* Germany */
+import germanyFrameworkTrend from "./germany/trends/frameworks-trend.png";
+import germanyLanguageTrend from "./germany/trends/languages-trend.png";
 import berlin1 from "./germany/berlin/berlin1.jpg";
 import berlin2 from "./germany/berlin/berlin2.jpg";
 import berlin3 from "./germany/berlin/berlin3.jpg";
@@ -29,6 +35,8 @@ import hamburg1 from "./germany/hamburg/hamburg1.jpg";
 import hamburg2 from "./germany/hamburg/hamburg2.jpg";
 import hamburg3 from "./germany/hamburg/hamburg3.jpg";
 /* Italy */
+import italyFrameworkTrend from "./italy/trends/frameworks-trend.png";
+import italyLanguageTrend from "./italy/trends/languages-trend.png";
 import rome1 from "./italy/rome/rome1.jpg";
 import rome2 from "./italy/rome/rome2.jpg";
 import rome3 from "./italy/rome/rome3.jpg";
@@ -39,6 +47,8 @@ import milan1 from "./italy/milan/milan1.jpg";
 import milan2 from "./italy/milan/milan2.jpg";
 import milan3 from "./italy/milan/milan3.jpg";
 /* Switzerland */
+import switzerlandFrameworkTrend from "./switzerland/trends/frameworks-trend.png";
+import switzerlandLanguageTrend from "./switzerland/trends/languages-trend.png";
 import zurich1 from "./switzerland/zurich/zurich1.jpg";
 import zurich2 from "./switzerland/zurich/zurich2.jpg";
 import zurich3 from "./switzerland/zurich/zurich3.jpg";
@@ -51,6 +61,10 @@ import bern3 from "./switzerland/bern/bern3.jpg";
 const data = [
   {
     country: "France",
+    trends: {
+      frameworkTrend: franceFrameworkTrend,
+      languageTrend: franceLanguageTrend,
+    },
     cities: [
       {
         id: 1,
@@ -81,6 +95,10 @@ const data = [
   },
   {
     country: "Austria",
+    trends: {
+      frameworkTrend: austriaFrameworkTrend,
+      languageTrend: austriaLanguageTrend,
+    },
     cities: [
       {
         id: 4,
@@ -111,6 +129,10 @@ const data = [
 
   {
     country: "Germany",
+    trends: {
+      frameworkTrend: germanyFrameworkTrend,
+      languageTrend: germanyLanguageTrend,
+    },
     cities: [
       {
         id: 7,
@@ -141,6 +163,10 @@ const data = [
 
   {
     country: "Italy",
+    trends: {
+      frameworkTrend: italyFrameworkTrend,
+      languageTrend: italyLanguageTrend,
+    },
     cities: [
       {
         id: 10,
@@ -171,6 +197,10 @@ const data = [
 
   {
     country: "Switzerland",
+    trends: {
+      frameworkTrend: switzerlandFrameworkTrend,
+      languageTrend: switzerlandLanguageTrend,
+    },
     cities: [
       {
         id: 13,
