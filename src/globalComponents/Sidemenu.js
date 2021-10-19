@@ -50,7 +50,7 @@ const Sidemenu = () => {
             <li>
               <Link
                 className={`${currentPage === "Explore" ? "active" : ""}`}
-                to="/all-countries"
+                to="/countries"
                 onClick={(e) => changeCurrentPage(e)}
               >
                 Explore
@@ -67,7 +67,7 @@ const Sidemenu = () => {
               {isAuthenticated ? (
                 <div className="user-info">
                   <aside>
-                    <img src={user.picture} alt={`${user.name}'s picture'`} />
+                    <img src={user.picture} alt={`${user.name}'s profile'`} />
                     <h6>{user.name}</h6>
                   </aside>
                   <div className="logout-btn">

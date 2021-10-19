@@ -138,3 +138,31 @@ $clr--article-bg: #c5a491;
     }
   }
 }
+
+%city-container {
+  article {
+    height: 300px;
+    width: 100%;
+    position: relative;
+    margin: 1rem;
+    padding: 0 1rem;
+
+    img {
+      box-shadow: 1px 1px 10px rgba(black, 0.5);
+      border-radius: 20px;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+    h4 {
+      position: absolute;
+      bottom: 0;
+      right: 1rem;
+      color: $clr--white;
+      background-color: rgba(black, 0.5);
+      padding: 0.5rem;
+      border-radius: 10px 0 20px 0;
+      letter-spacing: 2px;
+    }
+  }
+}

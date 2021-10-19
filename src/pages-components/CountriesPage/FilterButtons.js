@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { BiSearch } from "react-icons/bi";
 import { RiLayoutGridFill } from "react-icons/ri";
 import { HiMenuAlt1 } from "react-icons/hi";

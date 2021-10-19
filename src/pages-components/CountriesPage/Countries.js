@@ -1,8 +1,11 @@
 import React from "react";
 import { useCountriesContext } from "../../context/countriesContext";
+import { Link } from "react-router-dom";
+import { useSingleCountryContext } from "../../context/singleCountryContext";
 
 const Countries = () => {
   const { countries, isLoading, isShowMoreInfo } = useCountriesContext();
+  const { getCountryInfo } = useSingleCountryContext();
 
   let uniqueKey = 0;
 
@@ -16,29 +19,37 @@ const Countries = () => {
         countries.map((country) => {
           uniqueKey++;
           return (
-            <article key={uniqueKey} id={uniqueKey} className="country">
-              <div className="country-flag">
-                <img src={country.flags.svg} alt="t" />
-              </div>
-              <div className="country-info">
-                <h4>{country.name.common}</h4>
-                {isShowMoreInfo && (
-                  <>
-                    <p>
-                      <span>Capital: </span>
-                      {country.capital[0]}
-                    </p>
-                    <p>
-                      <span>Population: </span>
-                      {country.population.toLocaleString()}
-                    </p>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Neque, aut.
-                    </p>
-                  </>
-                )}
-              </div>
+            <article key={uniqueKey} className="country">
+              <Link
+                to={`/countries/${country.name.common}`}
+                onClick={() => getCountryInfo(country)}
+              >
+                <div className="country-flag">
+                  <img
+                    src={country.flags.svg}
+                    alt={`${country.name.common}'s flag'`}
+                  />
+                </div>
+                <div className="country-info">
+                  <h4>{country.name.common}</h4>
+                  {isShowMoreInfo && (
+                    <>
+                      <p>
+                        <span>Capital: </span>
+                        {country.capital[0]}
+                      </p>
+                      <p>
+                        <span>Population: </span>
+                        {country.population.toLocaleString()}
+                      </p>
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Neque, aut.
+                      </p>
+                    </>
+                  )}
+                </div>
+              </Link>
             </article>
           );
         })}

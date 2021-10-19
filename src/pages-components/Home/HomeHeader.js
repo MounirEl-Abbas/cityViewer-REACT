@@ -1,7 +1,7 @@
 import React from "react";
 /* Home Page Header Images */
-import hero from "../../assets/hero.jpg";
-import hero2 from "../../assets/hero2.jpg";
+import hero from "../../assets/global_assets/hero.jpg";
+import hero2 from "../../assets/global_assets/hero2.jpg";
 
 const HomeHeader = () => {
   return (

@@ -4,7 +4,7 @@ import Home from "./pages-components/Home/Home";
 import About from "./pages-components/About/About";
 import Error from "./pages-components/Error";
 import CountriesPage from "./pages-components/CountriesPage/CountriesPage";
-import CountryCities from "./pages-components/CountryCities/Country";
+import SingleCountryPage from "./pages-components/singleCountryPage/SingleCountryPage";
 import City from "./pages-components/City/City";
 import Wishlist from "./pages-components/Wishlist/Wishlist";
 //Components
@@ -26,11 +26,11 @@ function App() {
           <Route path="/wishlist">
             <Wishlist />
           </Route>
-          <Route path="/all-countries">
+          <Route exact path="/countries">
             <CountriesPage />
           </Route>
-          <Route path="/:countryName">
-            <CountryCities />
+          <Route path="/countries/:countryName">
+            <SingleCountryPage />
           </Route>
           <Route path="/:countryName/:cityName">
             <City />
