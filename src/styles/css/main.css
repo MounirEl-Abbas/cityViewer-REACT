@@ -1,6 +1,6 @@
 /* Configuration */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap");
-.home-page header .hero-title button, .featured-cities button, .home-page footer .newsletter form button, .country-details #backToTop-btn a button {
+.home-page header .hero-title button, .home-page .newsletter form button, .featured-cities button, .country-details #backToTop-btn a button {
   background-color: #e77e00;
   color: white;
   text-transform: uppercase;
@@ -12,7 +12,7 @@
   cursor: pointer;
 }
 
-.home-page header .hero-title button:hover, .featured-cities button:hover, .home-page footer .newsletter form button:hover, .country-details #backToTop-btn a button:hover {
+.home-page header .hero-title button:hover, .home-page .newsletter form button:hover, .featured-cities button:hover, .country-details #backToTop-btn a button:hover {
   background-color: transparent;
   color: #e77e00;
 }
@@ -166,7 +166,8 @@
 }
 
 html,
-body {
+body,
+#root {
   width: 100%;
   height: 100%;
   font-size: 10px;
@@ -223,6 +224,33 @@ p {
   body {
     font-size: 16px;
   }
+}
+
+.App {
+  position: relative;
+}
+
+footer {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  margin-top: 100px;
+}
+
+footer .copyright {
+  height: 70px;
+  background-color: #151515;
+  text-align: center;
+}
+
+footer .copyright p {
+  color: #fff;
+  margin: auto;
+  padding-top: 30px;
+}
+
+footer .copyright p span {
+  color: #e77e00;
 }
 
 /* Navigation */
@@ -478,6 +506,69 @@ p {
   }
 }
 
+.home-page .newsletter {
+  padding: 4rem 3rem;
+}
+
+.home-page .newsletter h3 {
+  text-transform: none;
+  font-size: 2rem;
+}
+
+.home-page .newsletter p {
+  margin: 2rem 0;
+  line-height: 2.2rem;
+}
+
+.home-page .newsletter form {
+  max-width: 400px;
+  border: 2px solid black;
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.home-page .newsletter form input {
+  width: 100%;
+  padding: 5px;
+  border: none;
+  border-right: 2px solid black;
+}
+
+.home-page .newsletter form input::placeholder {
+  padding: 5px;
+}
+
+.home-page .newsletter form button {
+  width: 120px;
+  padding: 0;
+  border-radius: 0;
+  text-transform: none;
+}
+
+@media (min-width: 768px) {
+  .home-page .newsletter {
+    max-width: 1300px;
+    margin: auto;
+  }
+  .home-page .newsletter div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .home-page .newsletter div h3 {
+    font-size: 2.4rem;
+  }
+  .home-page .newsletter div p {
+    width: 30%;
+  }
+  .home-page .newsletter div form,
+  .home-page .newsletter div form input,
+  .home-page .newsletter div button {
+    border-width: 1px;
+  }
+}
+
 .featured-cities {
   display: flex;
   justify-content: center;
@@ -629,85 +720,6 @@ p {
   .travel-guarantee .flex-container article {
     width: 300px;
     margin: 0 10px;
-  }
-}
-
-.home-page footer .newsletter {
-  padding: 4rem 3rem;
-}
-
-.home-page footer .newsletter h3 {
-  text-transform: none;
-  font-size: 2rem;
-}
-
-.home-page footer .newsletter p {
-  margin: 2rem 0;
-  line-height: 2.2rem;
-}
-
-.home-page footer .newsletter form {
-  max-width: 400px;
-  border: 2px solid black;
-  border-radius: 3px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.home-page footer .newsletter form input {
-  width: 100%;
-  padding: 5px;
-  border: none;
-  border-right: 2px solid black;
-}
-
-.home-page footer .newsletter form input::placeholder {
-  padding: 5px;
-}
-
-.home-page footer .newsletter form button {
-  width: 120px;
-  padding: 0;
-  border-radius: 0;
-  text-transform: none;
-}
-
-.home-page footer .copyright {
-  height: 70px;
-  background-color: #151515;
-  text-align: center;
-}
-
-.home-page footer .copyright p {
-  color: #fff;
-  margin: auto;
-  padding-top: 30px;
-}
-
-.home-page footer .copyright p span {
-  color: #e77e00;
-}
-
-@media (min-width: 768px) {
-  .home-page footer .newsletter {
-    max-width: 1300px;
-    margin: auto;
-  }
-  .home-page footer .newsletter div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .home-page footer .newsletter div h3 {
-    font-size: 2.4rem;
-  }
-  .home-page footer .newsletter div p {
-    width: 30%;
-  }
-  .home-page footer .newsletter div form,
-  .home-page footer .newsletter div form input,
-  .home-page footer .newsletter div button {
-    border-width: 1px;
   }
 }
 
@@ -914,7 +926,7 @@ p {
 .country-details main {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 400px 1fr 40%;
+  grid-template-rows: 400px 1fr 700px;
   grid-template-areas: "info" "trends" "cities";
 }
 
@@ -987,6 +999,8 @@ p {
 .country-details main .cities {
   grid-area: cities;
   text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 .country-details main .country-cities {
@@ -1046,7 +1060,7 @@ p {
 @media (min-width: 1300px) {
   .country-details main {
     grid-template-columns: 75% 25%;
-    grid-template-rows: 1fr 100px 35%;
+    grid-template-rows: 1fr 100px 500px;
     grid-template-areas: "trends info" ". ." "cities cities";
   }
   .country-details .country-info {

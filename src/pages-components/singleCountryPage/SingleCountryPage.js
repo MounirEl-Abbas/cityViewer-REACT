@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { useSingleCountryContext } from "../../context/singleCountryContext";
 import { Link } from "react-router-dom";
+
+//Context
+import { useCountryContext } from "../../context/singleCountryContext";
+import { useCityContext } from "../../context/singleCityContext";
+
+//Images - Icons
 import frameworkTrendLegend from "../../assets/global_assets/frameworks-legend.png";
 import languagesTrendLegend from "../../assets/global_assets/languages-legend.png";
 import { FaChevronLeft } from "react-icons/fa";
 
 const SingleCountryPage = () => {
-  const { countrySelected } = useSingleCountryContext();
+  const { countrySelected } = useCountryContext();
   const { countryCities, countryDataApi, countryTrends } = countrySelected;
-  console.log(countrySelected);
+  const { getCityInfo } = useCityContext();
   return (
     <div className="country-details">
       <Link to="/countries" id="back-btn">
@@ -61,10 +66,16 @@ const SingleCountryPage = () => {
           <div className="country-cities">
             {countryCities.map((city) => {
               return (
-                <article key={city.id}>
-                  <h4>{city.cityName}</h4>
-                  <img src={city.images[0]} alt="" />
-                </article>
+                <Link
+                  key={city.id}
+                  to={`/countries/${countryDataApi.name.common}/${city.cityName}`}
+                  onClick={() => getCityInfo(city)}
+                >
+                  <article>
+                    <h4>{city.cityName}</h4>
+                    <img src={city.images[0]} alt="" />
+                  </article>
+                </Link>
               );
             })}
           </div>

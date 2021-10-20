@@ -22,7 +22,7 @@
   main {
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 400px 1fr 40%;
+    grid-template-rows: 400px 1fr 700px;
     grid-template-areas:
       "info"
       "trends"
@@ -88,6 +88,8 @@
     .cities {
       grid-area: cities;
       text-align: center;
+      display: flex;
+      flex-flow: column nowrap;
     }
     .country-cities {
       width: fit-content;
@@ -141,7 +143,7 @@
   @media (min-width: 1300px) {
     main {
       grid-template-columns: 75% 25%;
-      grid-template-rows: 1fr 100px 35%;
+      grid-template-rows: 1fr 100px 500px;
       grid-template-areas:
         "trends info"
         ". ."

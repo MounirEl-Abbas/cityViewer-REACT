@@ -1,11 +1,11 @@
 import React from "react";
 import { useCountriesContext } from "../../context/countriesContext";
 import { Link } from "react-router-dom";
-import { useSingleCountryContext } from "../../context/singleCountryContext";
+import { useCountryContext } from "../../context/singleCountryContext";
 
 const Countries = () => {
   const { countries, isLoading, isShowMoreInfo } = useCountriesContext();
-  const { getCountryInfo } = useSingleCountryContext();
+  const { getCountryInfo } = useCountryContext();
 
   let uniqueKey = 0;
 
