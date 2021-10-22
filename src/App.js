@@ -11,6 +11,7 @@ import Wishlist from "./pages-components/Wishlist/Wishlist";
 import Navbar from "./globalComponents/Navbar";
 import Sidemenu from "./globalComponents/Sidemenu";
 import Footer from "./globalComponents/Footer";
+import ScrollToTop from "./globalComponents/ScrollToTop";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Router>
         <Navbar />
         <Sidemenu />
+        <ScrollToTop />
         <Switch>
           <Route exact path="/">
             <Home />

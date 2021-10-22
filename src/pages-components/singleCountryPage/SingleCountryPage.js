@@ -21,7 +21,7 @@ const SingleCountryPage = () => {
         <button>Back</button>
       </Link>
       <h1>{countryDataApi.name.common}</h1>
-      <main>
+      <main className="country-info-container">
         <section className="country-trends">
           <h2>Google Trends (12 Months)</h2>
           <article className="frameworks">
@@ -69,7 +69,7 @@ const SingleCountryPage = () => {
                 <Link
                   key={city.id}
                   to={`/countries/${countryDataApi.name.common}/${city.cityName}`}
-                  onClick={() => getCityInfo(city)}
+                  onClick={() => getCityInfo(city, countryDataApi.name.common)}
                 >
                   <article>
                     <h4>{city.cityName}</h4>

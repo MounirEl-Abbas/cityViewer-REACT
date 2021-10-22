@@ -90,5 +90,6 @@ footer {
 @import "./homePage/home";
 
 /* Countries Page */
-/* Individual City Page */
 @import "./countriesPage/countriesPage", "./singleCountryPage/singleCountryPage";
+/* Individual City Page */
+@import "./singleCityPage/cityPage";

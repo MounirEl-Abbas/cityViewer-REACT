@@ -166,3 +166,17 @@ $clr--article-bg: #c5a491;
     }
   }
 }
+
+%back-btn {
+  margin: 2rem 0.2rem;
+  display: flex;
+  text-decoration: none;
+  svg {
+    font-size: 30px;
+    color: $secondary-color;
+  }
+  button {
+    cursor: pointer;
+    border: none;
+  }
+}
