@@ -10,12 +10,16 @@ import Wishlist from "./pages-components/Wishlist/Wishlist";
 //Components
 import Navbar from "./globalComponents/Navbar";
 import Sidemenu from "./globalComponents/Sidemenu";
+import Footer from "./globalComponents/Footer";
+import ScrollToTop from "./globalComponents/ScrollToTop";
+
 function App() {
   return (
     <div className="App">
       <Router>
         <Navbar />
         <Sidemenu />
+        <ScrollToTop />
         <Switch>
           <Route exact path="/">
             <Home />
@@ -29,10 +33,10 @@ function App() {
           <Route exact path="/countries">
             <CountriesPage />
           </Route>
-          <Route path="/countries/:countryName">
+          <Route exact path="/countries/:countryName">
             <SingleCountryPage />
           </Route>
-          <Route path="/:countryName/:cityName">
+          <Route path="/countries/:countryName/:cityName">
             <City />
           </Route>
           <Route path="*">
@@ -40,6 +44,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      <Footer />
     </div>
   );
 }

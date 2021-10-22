@@ -26,7 +26,7 @@ const SingleCountryContextProvider = ({ children }) => {
   );
 };
 
-export const useSingleCountryContext = () => {
+export const useCountryContext = () => {
   return useContext(SingleCountryContext);
 };
 

@@ -7,10 +7,12 @@ import App from "./App";
 import NavigationContextProvider from "./context/navigationContext";
 import CountriesContextProvider from "./context/countriesContext";
 import SingleCountryContextProvider from "./context/singleCountryContext";
+import SingleCityContextProvider from "./context/singleCityContext";
 
 /* Auth0 */
 import { Auth0Provider } from "@auth0/auth0-react";
 
+/* .env */
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 const googleMapsAPIKey = process.env.REACT_APP_GOOGLEMAPS_API_KEY;
@@ -25,7 +27,9 @@ ReactDOM.render(
       <NavigationContextProvider>
         <CountriesContextProvider>
           <SingleCountryContextProvider>
-            <App />
+            <SingleCityContextProvider mapsAPIKey={googleMapsAPIKey}>
+              <App />
+            </SingleCityContextProvider>
           </SingleCountryContextProvider>
         </CountriesContextProvider>
       </NavigationContextProvider>
@@ -33,8 +37,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
-/* 
-https://maps.googleapis.com/maps/api/staticmap?center=Venice,IT&zoom=5&size=400x400&markers=color:red|Venice,IT&key=AIzaSyChtMCSnNftrR0pzqOX-SU7-OEp7BYEmKw
-
-https://developers.google.com/maps/documentation/maps-static/overview?hl=en_GB
-*/

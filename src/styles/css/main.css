@@ -1,6 +1,6 @@
 /* Configuration */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap");
-.home-page header .hero-title button, .featured-cities button, .home-page footer .newsletter form button, .country-details #backToTop-btn a button {
+.home-page header .hero-title button, .home-page .newsletter form button, .featured-cities button, #backToTop-btn a button {
   background-color: #e77e00;
   color: white;
   text-transform: uppercase;
@@ -12,7 +12,7 @@
   cursor: pointer;
 }
 
-.home-page header .hero-title button:hover, .featured-cities button:hover, .home-page footer .newsletter form button:hover, .country-details #backToTop-btn a button:hover {
+.home-page header .hero-title button:hover, .home-page .newsletter form button:hover, .featured-cities button:hover, #backToTop-btn a button:hover {
   background-color: transparent;
   color: #e77e00;
 }
@@ -131,7 +131,7 @@
   font-size: 16px;
 }
 
-.featured-cities article, .country-details main .country-cities article {
+.featured-cities article, .country-info-container .country-cities article {
   height: 300px;
   width: 100%;
   position: relative;
@@ -139,7 +139,7 @@
   padding: 0 1rem;
 }
 
-.featured-cities article img, .country-details main .country-cities article img {
+.featured-cities article img, .country-info-container .country-cities article img {
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
   border-radius: 20px;
   object-fit: cover;
@@ -147,7 +147,7 @@
   height: 100%;
 }
 
-.featured-cities article h4, .country-details main .country-cities article h4 {
+.featured-cities article h4, .country-info-container .country-cities article h4 {
   position: absolute;
   bottom: 0;
   right: 1rem;
@@ -158,6 +158,22 @@
   letter-spacing: 2px;
 }
 
+.country-details #back-btn, .single-city-container #back-btn {
+  margin: 2rem 0.2rem;
+  display: flex;
+  text-decoration: none;
+}
+
+.country-details #back-btn svg, .single-city-container #back-btn svg {
+  font-size: 30px;
+  color: #e77e00;
+}
+
+.country-details #back-btn button, .single-city-container #back-btn button {
+  cursor: pointer;
+  border: none;
+}
+
 /* General Tag styles */
 * {
   box-sizing: border-box;
@@ -166,7 +182,8 @@
 }
 
 html,
-body {
+body,
+#root {
   width: 100%;
   height: 100%;
   font-size: 10px;
@@ -225,6 +242,33 @@ p {
   }
 }
 
+.App {
+  position: relative;
+}
+
+footer {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  margin-top: 100px;
+}
+
+footer .copyright {
+  height: 70px;
+  background-color: #151515;
+  text-align: center;
+}
+
+footer .copyright p {
+  color: #fff;
+  margin: auto;
+  padding-top: 30px;
+}
+
+footer .copyright p span {
+  color: #e77e00;
+}
+
 /* Navigation */
 .navbar {
   max-width: 1300px;
@@ -243,7 +287,7 @@ p {
 }
 
 .navbar #burger-btn svg {
-  font-size: 40px;
+  font-size: 3rem;
   cursor: pointer;
 }
 
@@ -316,7 +360,7 @@ p {
 }
 
 .logo svg {
-  font-size: 60px;
+  font-size: 4rem;
 }
 
 .logo h3 {
@@ -478,6 +522,69 @@ p {
   }
 }
 
+.home-page .newsletter {
+  padding: 4rem 3rem;
+}
+
+.home-page .newsletter h3 {
+  text-transform: none;
+  font-size: 2rem;
+}
+
+.home-page .newsletter p {
+  margin: 2rem 0;
+  line-height: 2.2rem;
+}
+
+.home-page .newsletter form {
+  max-width: 400px;
+  border: 2px solid black;
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.home-page .newsletter form input {
+  width: 100%;
+  padding: 5px;
+  border: none;
+  border-right: 2px solid black;
+}
+
+.home-page .newsletter form input::placeholder {
+  padding: 5px;
+}
+
+.home-page .newsletter form button {
+  width: 120px;
+  padding: 0;
+  border-radius: 0;
+  text-transform: none;
+}
+
+@media (min-width: 768px) {
+  .home-page .newsletter {
+    max-width: 1300px;
+    margin: auto;
+  }
+  .home-page .newsletter div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .home-page .newsletter div h3 {
+    font-size: 2.4rem;
+  }
+  .home-page .newsletter div p {
+    width: 30%;
+  }
+  .home-page .newsletter div form,
+  .home-page .newsletter div form input,
+  .home-page .newsletter div button {
+    border-width: 1px;
+  }
+}
+
 .featured-cities {
   display: flex;
   justify-content: center;
@@ -632,87 +739,7 @@ p {
   }
 }
 
-.home-page footer .newsletter {
-  padding: 4rem 3rem;
-}
-
-.home-page footer .newsletter h3 {
-  text-transform: none;
-  font-size: 2rem;
-}
-
-.home-page footer .newsletter p {
-  margin: 2rem 0;
-  line-height: 2.2rem;
-}
-
-.home-page footer .newsletter form {
-  max-width: 400px;
-  border: 2px solid black;
-  border-radius: 3px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.home-page footer .newsletter form input {
-  width: 100%;
-  padding: 5px;
-  border: none;
-  border-right: 2px solid black;
-}
-
-.home-page footer .newsletter form input::placeholder {
-  padding: 5px;
-}
-
-.home-page footer .newsletter form button {
-  width: 120px;
-  padding: 0;
-  border-radius: 0;
-  text-transform: none;
-}
-
-.home-page footer .copyright {
-  height: 70px;
-  background-color: #151515;
-  text-align: center;
-}
-
-.home-page footer .copyright p {
-  color: #fff;
-  margin: auto;
-  padding-top: 30px;
-}
-
-.home-page footer .copyright p span {
-  color: #e77e00;
-}
-
-@media (min-width: 768px) {
-  .home-page footer .newsletter {
-    max-width: 1300px;
-    margin: auto;
-  }
-  .home-page footer .newsletter div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .home-page footer .newsletter div h3 {
-    font-size: 2.4rem;
-  }
-  .home-page footer .newsletter div p {
-    width: 30%;
-  }
-  .home-page footer .newsletter div form,
-  .home-page footer .newsletter div form input,
-  .home-page footer .newsletter div button {
-    border-width: 1px;
-  }
-}
-
 /* Countries Page */
-/* Individual City Page */
 .all-countries-page {
   display: flex;
   flex-flow: column nowrap;
@@ -890,35 +917,18 @@ p {
   margin: auto;
 }
 
-.country-details #back-btn {
-  margin: 2rem 0.2rem;
-  display: flex;
-  text-decoration: none;
-  width: fit-content;
-}
-
-.country-details #back-btn svg {
-  font-size: 30px;
-  color: #e77e00;
-}
-
-.country-details #back-btn button {
-  cursor: pointer;
-  border: none;
-}
-
 .country-details h1 {
   display: none;
 }
 
-.country-details main {
+.country-info-container {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 400px 1fr 40%;
+  grid-template-rows: 400px 1fr 1fr;
   grid-template-areas: "info" "trends" "cities";
 }
 
-.country-details main .country-trends {
+.country-info-container .country-trends {
   padding: 100px 0;
   grid-area: trends;
   text-align: center;
@@ -928,7 +938,7 @@ p {
   justify-content: space-between;
 }
 
-.country-details main .country-trends article {
+.country-info-container .country-trends article {
   border: solid rgba(0, 0, 0, 0.25);
   border-width: 0px 3px 3px 0;
   border-radius: 5px;
@@ -937,18 +947,18 @@ p {
   margin: 3rem 0;
 }
 
-.country-details main .country-trends article .trend-legend {
+.country-info-container .country-trends article .trend-legend {
   width: 200px;
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.country-details main .country-trends article .trend-data {
+.country-info-container .country-trends article .trend-data {
   width: 100%;
 }
 
-.country-details main .country-info {
+.country-info-container .country-info {
   margin: 0 auto;
   max-width: 260px;
   grid-area: info;
@@ -959,38 +969,39 @@ p {
   justify-content: flex-start;
 }
 
-.country-details main .country-info img {
+.country-info-container .country-info img {
   height: 180px;
   width: 260px;
   object-fit: cover;
 }
 
-.country-details main .country-info .info-container {
+.country-info-container .country-info .info-container {
   border: 2px solid rgba(0, 0, 0, 0.15);
   border-top: none;
 }
 
-.country-details main .country-info .info-container h4 {
+.country-info-container .country-info .info-container h4 {
   text-align: center;
   padding: 5px;
 }
 
-.country-details main .country-info .info-container p {
+.country-info-container .country-info .info-container p {
   font-size: 16px;
-  padding: 10px;
+  padding: 10px 15px;
 }
 
-.country-details main .country-info .info-container p span {
+.country-info-container .country-info .info-container p span {
   font-weight: 700;
 }
 
-.country-details main .cities {
+.country-info-container .cities {
   grid-area: cities;
   text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
 }
 
-.country-details main .country-cities {
-  width: fit-content;
+.country-info-container .country-cities {
   margin: auto;
   display: flex;
   justify-content: center;
@@ -998,33 +1009,54 @@ p {
   flex-direction: column;
 }
 
-.country-details main .country-cities article {
+.country-info-container .country-cities a {
+  width: 100%;
+}
+
+.country-info-container .country-cities article {
   height: 200px;
 }
 
+#backToTop-btn {
+  width: 112px;
+  margin: 4rem auto;
+  padding: 0;
+}
+
+#backToTop-btn a {
+  text-decoration: none;
+  margin: auto;
+  text-align: center;
+}
+
 @media (min-width: 768px) {
-  .country-details main .country-cities {
+  .cities .country-cities {
     flex-flow: row wrap;
   }
-  .country-details main .country-cities article {
+  .cities .country-cities a {
+    width: 33%;
+  }
+  .cities .country-cities article {
     width: 250px;
   }
 }
 
-@media (min-width: 768px) and (max-width: 1300px) {
-  .country-details main .country-info {
+@media (min-width: 768px) and (max-width: 1299px) {
+  .country-info-container {
+    grid-template-rows: 400px 1fr 400px;
+  }
+  .country-info-container .country-info {
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
-    max-width: fit-content;
+    max-width: 600px;
     height: 220px;
     flex-direction: row;
-    justify-content: space-between;
   }
-  .country-details main .country-info .img-container {
+  .country-info-container .country-info .img-container {
     width: 180px;
     height: 220px;
     position: relative;
   }
-  .country-details main .country-info .img-container img {
+  .country-info-container .country-info .img-container img {
     height: 180px;
     width: 220px;
     transform: rotateZ(-90deg);
@@ -1032,41 +1064,163 @@ p {
     left: -20px;
     top: 20px;
   }
-  .country-details main .country-info .info-container {
+  .country-info-container .country-info .info-container {
     width: 460px;
     height: 220px;
     border: 0;
   }
-  .country-details main .country-info .info-container h4 {
+  .country-info-container .country-info .info-container h4 {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
   }
 }
 
 @media (min-width: 1300px) {
-  .country-details main {
+  .country-info-container {
     grid-template-columns: 75% 25%;
-    grid-template-rows: 1fr 100px 35%;
+    grid-template-rows: 1fr 100px 500px;
     grid-template-areas: "trends info" ". ." "cities cities";
   }
-  .country-details .country-info {
+  .country-info {
     padding-top: 8rem;
     margin-left: 2rem;
     justify-self: flex-end;
   }
-  .country-details h1 {
+  h1 {
     display: block;
   }
 }
 
-.country-details #backToTop-btn {
-  width: 112px;
-  margin: 4rem auto;
-  padding: 0;
+/* Individual City Page */
+.single-city-container {
+  margin: auto;
 }
 
-.country-details #backToTop-btn a {
-  text-decoration: none;
+.single-city-container .btn-container {
+  max-width: 1200px;
   margin: auto;
+}
+
+.city-info-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 5rem;
+  background-color: #eaded7;
+  padding: 1rem;
+}
+
+.city-images-container {
+  display: flex;
+  flex-direction: column;
+  height: 320px;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 500px;
+  padding: 0 5px;
+}
+
+.city-images-container img {
+  height: 60px;
+  width: 32%;
+  object-fit: cover;
+}
+
+.city-images-container #displayImg {
+  width: 100%;
+  height: 250px;
+}
+
+.city-images-container .img-indicators-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.city-images-container .indicator {
+  opacity: 0.6;
+  cursor: pointer;
+  transition: opacity 0.3s linear;
+}
+
+.city-images-container .indicator:hover {
+  opacity: 1;
+}
+
+.city-images-container .currentImage {
+  transform: scale(0.95);
+  opacity: 1;
+}
+
+/****/
+.city-info {
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  padding: 0 5px;
+}
+
+.city-info p {
+  color: #453227;
+  padding: 5px 0;
+}
+
+.city-info p span {
+  font-weight: 700;
+}
+
+/****/
+.city-map {
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 600px;
   text-align: center;
+}
+
+.city-map img {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+@media (min-width: 768px) {
+  .city-info-container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .city-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+    padding-left: 1rem;
+    height: 220px;
+  }
+  .city-info h4 {
+    font-size: 2rem;
+  }
+  .city-images-container {
+    height: 380px;
+  }
+  .city-images-container img {
+    height: 70px;
+  }
+  .city-images-container #displayImg {
+    height: 300px;
+  }
+}
+
+@media (min-width: 1300px) {
+  .city-images-container {
+    height: 500px;
+    max-width: 600px;
+  }
+  .city-images-container img {
+    height: 90px;
+  }
+  .city-images-container #displayImg {
+    height: 400px;
+  }
 }

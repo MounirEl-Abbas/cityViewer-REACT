@@ -3,171 +3,170 @@
   margin: auto;
 
   #back-btn {
-    margin: 2rem 0.2rem;
-    display: flex;
-    text-decoration: none;
-    width: fit-content;
-    svg {
-      font-size: 30px;
-      color: $secondary-color;
-    }
-    button {
-      cursor: pointer;
-      border: none;
-    }
+    @extend %back-btn;
   }
   h1 {
     display: none;
   }
-  main {
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 400px 1fr 40%;
-    grid-template-areas:
-      "info"
-      "trends"
-      "cities";
+}
+.country-info-container {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 400px 1fr 1fr;
+  grid-template-areas:
+    "info"
+    "trends"
+    "cities";
 
-    .country-trends {
-      padding: 100px 0;
-      grid-area: trends;
-      text-align: center;
-      display: flex;
-      flex-flow: column;
-      height: 100%;
-      justify-content: space-between;
+  .country-trends {
+    padding: 100px 0;
+    grid-area: trends;
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    justify-content: space-between;
 
-      article {
-        border: solid rgba(black, 0.25);
-        border-width: 0px 3px 3px 0;
-        border-radius: 5px;
-        position: relative;
+    article {
+      border: solid rgba(black, 0.25);
+      border-width: 0px 3px 3px 0;
+      border-radius: 5px;
+      position: relative;
+      width: 100%;
+      margin: 3rem 0;
+      .trend-legend {
+        width: 200px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .trend-data {
         width: 100%;
-        margin: 3rem 0;
-        .trend-legend {
-          width: 200px;
-          position: absolute;
-          top: 0;
-          left: 0;
-        }
-        .trend-data {
-          width: 100%;
-        }
       }
     }
-    .country-info {
-      margin: 0 auto;
-      max-width: 260px;
-      grid-area: info;
-      @include flexCenter(column);
-      justify-content: flex-start;
+  }
+  .country-info {
+    margin: 0 auto;
+    max-width: 260px;
+    grid-area: info;
+    @include flexCenter(column);
+    justify-content: flex-start;
+
+    img {
+      height: 180px;
+      width: 260px;
+      object-fit: cover;
+    }
+    .info-container {
+      border: 2px solid rgba(black, 0.15);
+      border-top: none;
+      h4 {
+        text-align: center;
+        padding: 5px;
+      }
+      p {
+        font-size: 16px;
+        padding: 10px 15px;
+      }
+      p span {
+        font-weight: 700;
+      }
+    }
+  }
+  .cities {
+    grid-area: cities;
+    text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+  }
+  .country-cities {
+    margin: auto;
+    @include flexCenter(column);
+    @extend %city-container;
+    a {
+      width: 100%;
+    }
+    article {
+      height: 200px;
+    }
+  }
+}
+#backToTop-btn {
+  width: 112px;
+  margin: 4rem auto;
+  padding: 0;
+  a {
+    text-decoration: none;
+    margin: auto;
+    text-align: center;
+    button {
+      @extend %homeButton;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .cities .country-cities {
+    flex-flow: row wrap;
+    a {
+      width: 33%;
+    }
+    article {
+      width: 250px;
+    }
+  }
+}
+@media (min-width: 768px) and (max-width: 1299px) {
+  .country-info-container {
+    grid-template-rows: 400px 1fr 400px;
+  }
+  .country-info-container .country-info {
+    box-shadow: 1px 1px 10px rgba(black, 0.5);
+    max-width: 600px;
+    height: 220px;
+    flex-direction: row;
+
+    .img-container {
+      width: 180px;
+      height: 220px;
+      position: relative;
 
       img {
         height: 180px;
-        width: 260px;
-        object-fit: cover;
-      }
-      .info-container {
-        border: 2px solid rgba(black, 0.15);
-        border-top: none;
-
-        h4 {
-          text-align: center;
-          padding: 5px;
-        }
-        p {
-          font-size: 16px;
-
-          padding: 10px;
-        }
-        p span {
-          font-weight: 700;
-        }
+        width: 220px;
+        transform: rotateZ(-90deg);
+        position: absolute;
+        left: -20px;
+        top: 20px;
       }
     }
-    .cities {
-      grid-area: cities;
-      text-align: center;
-    }
-    .country-cities {
-      width: fit-content;
-      margin: auto;
-      @include flexCenter(column);
-      @extend %city-container;
-      article {
-        height: 200px;
-      }
-      @media (min-width: 768px) {
-        flex-flow: row wrap;
-        article {
-          width: 250px;
-        }
-      }
-    }
-    @media (min-width: 768px) and (max-width: 1300px) {
-      .country-info {
-        box-shadow: 1px 1px 10px rgba(black, 0.5);
-        max-width: fit-content;
-        height: 220px;
-        flex-direction: row;
-        justify-content: space-between;
-
-        .img-container {
-          width: 180px;
-          height: 220px;
-          position: relative;
-
-          img {
-            height: 180px;
-            width: 220px;
-            transform: rotateZ(-90deg);
-            position: absolute;
-            left: -20px;
-            top: 20px;
-          }
-        }
-        .info-container {
-          width: 460px;
-          height: 220px;
-          border: 0;
-          h4 {
-            background-color: rgba(black, 0.5);
-            color: white;
-          }
-        }
+    .info-container {
+      width: 460px;
+      height: 220px;
+      border: 0;
+      h4 {
+        background-color: rgba(black, 0.5);
+        color: white;
       }
     }
   }
-  @media (min-width: 1300px) {
-    main {
-      grid-template-columns: 75% 25%;
-      grid-template-rows: 1fr 100px 35%;
-      grid-template-areas:
-        "trends info"
-        ". ."
-        "cities cities";
-    }
-    .country-info {
-      padding-top: 8rem;
-      margin-left: 2rem;
-      justify-self: flex-end;
-    }
-
-    h1 {
-      display: block;
-    }
+}
+@media (min-width: 1300px) {
+  .country-info-container {
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 1fr 100px 500px;
+    grid-template-areas:
+      "trends info"
+      ". ."
+      "cities cities";
   }
-  #backToTop-btn {
-    width: 112px;
-    margin: 4rem auto;
-    padding: 0;
-    a {
-      text-decoration: none;
-      margin: auto;
-      text-align: center;
-      button {
-        @extend %homeButton;
-      }
-    }
+  .country-info {
+    padding-top: 8rem;
+    margin-left: 2rem;
+    justify-self: flex-end;
+  }
+
+  h1 {
+    display: block;
   }
 }
