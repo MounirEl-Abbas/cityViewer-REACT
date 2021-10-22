@@ -86,7 +86,7 @@ export const useCityContext = () => {
 export default SingleCityContextProvider;
 
 /* 
-https://maps.googleapis.com/maps/api/staticmap?center=Venice,IT&zoom=5&size=400x400&markers=color:red|Venice,IT&key=AIzaSyChtMCSnNftrR0pzqOX-SU7-OEp7BYEmKw
+https://maps.googleapis.com/maps/api/staticmap?center=Venice,IT&zoom=5&size=400x400&markers=color:red|Venice,IT&key=APIKEY
 
 https://developers.google.com/maps/documentation/maps-static/overview?hl=en_GB
 */
