@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 /* Featured Cities Images */
 import romeImg from "../../assets/italy/rome/rome1.jpg";
 import parisImg from "../../assets/france/paris/paris1.jpg";
@@ -25,7 +26,9 @@ const HomeFeaturedCities = () => {
         <img src={viennaImg} alt="" />
         <h4>Vienna</h4>
       </article>
-      <button>All Cities</button>
+      <Link to="/countries">
+        <button>All Cities</button>
+      </Link>
     </section>
   );
 };

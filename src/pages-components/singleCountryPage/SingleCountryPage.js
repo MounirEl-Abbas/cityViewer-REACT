@@ -14,6 +14,8 @@ const SingleCountryPage = () => {
   const { countrySelected } = useCountryContext();
   const { countryCities, countryDataApi, countryTrends } = countrySelected;
   const { getCityInfo } = useCityContext();
+
+  console.log(`countrySelected`, countryDataApi);
   return (
     <div className="country-details">
       <Link to="/countries" id="back-btn">

@@ -6,6 +6,7 @@ const SingleCountryContextProvider = ({ children }) => {
   const [countrySelected, setCountrySelected] = useState({});
 
   const getCountryInfo = (country) => {
+    console.log(`country`, country);
     data.forEach((object) => {
       if (country.name.common === object.country) {
         let trends = object.trends;

@@ -1,3 +1,27 @@
+/* Canada */
+import canadaFrameworkTrend from "./canada/trends/frameworks-trend.png";
+import canadaLanguageTrend from "./canada/trends/languages-trend.png";
+import ottawa1 from "./canada/ottawa/ottawa1.jpg";
+import ottawa2 from "./canada/ottawa/ottawa2.jpg";
+import ottawa3 from "./canada/ottawa/ottawa3.jpg";
+import toronto1 from "./canada/toronto/toronto1.jpg";
+import toronto2 from "./canada/toronto/toronto2.jpg";
+import toronto3 from "./canada/toronto/toronto3.jpg";
+import montreal1 from "./canada/montreal/montreal1.jpg";
+import montreal2 from "./canada/montreal/montreal2.jpg";
+import montreal3 from "./canada/montreal/montreal3.jpg";
+/* unitedStates */
+import unitedStatesFrameworkTrend from "./unitedStates/trends/frameworks-trend.png";
+import unitedStatesLanguageTrend from "./unitedStates/trends/languages-trend.png";
+import washington1 from "./unitedStates/washington/washington1.jpg";
+import washington2 from "./unitedStates/washington/washington2.jpg";
+import washington3 from "./unitedStates/washington/washington3.jpg";
+import newYork1 from "./unitedStates/newYork/newYork1.jpg";
+import newYork2 from "./unitedStates/newYork/newYork2.jpg";
+import newYork3 from "./unitedStates/newYork/newYork3.jpg";
+import losAngeles1 from "./unitedStates/losAngeles/losAngeles1.jpg";
+import losAngeles2 from "./unitedStates/losAngeles/losAngeles2.jpg";
+import losAngeles3 from "./unitedStates/losAngeles/losAngeles3.jpg";
 /* France */
 import franceFrameworkTrend from "./france/trends/frameworks-trend.png";
 import franceLanguageTrend from "./france/trends/languages-trend.png";
@@ -225,6 +249,74 @@ const data = [
         description:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa ipsum perspiciatis ea voluptate consequuntur, ut ipsam impedit a fugiat, recusandae, sint natus expedita sequi nisi vero. Harum cumque iusto numquam.",
         images: [bern1, bern2, bern3],
+      },
+    ],
+  },
+  {
+    country: "Canada",
+    trends: {
+      frameworkTrend: canadaFrameworkTrend,
+      languageTrend: canadaLanguageTrend,
+    },
+    cities: [
+      {
+        id: 16,
+        cityName: "Ottawa",
+        population: 2200000,
+        description:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa ipsum perspiciatis ea voluptate consequuntur, ut ipsam impedit a fugiat, recusandae, sint natus expedita sequi nisi vero. Harum cumque iusto numquam.",
+        images: [ottawa1, ottawa2, ottawa3],
+      },
+
+      {
+        id: 17,
+        cityName: "Toronto",
+        population: 2930000,
+        description:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa ipsum perspiciatis ea voluptate consequuntur, ut ipsam impedit a fugiat, recusandae, sint natus expedita sequi nisi vero. Harum cumque iusto numquam.",
+        images: [toronto1, toronto2, toronto3],
+      },
+      {
+        id: 18,
+        cityName: "Montreal",
+        population: 1780000,
+        description:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa ipsum perspiciatis ea voluptate consequuntur, ut ipsam impedit a fugiat, recusandae, sint natus expedita sequi nisi vero. Harum cumque iusto numquam.",
+        images: [montreal1, montreal2, montreal3],
+      },
+    ],
+  },
+  {
+    country: "United States",
+    trends: {
+      frameworkTrend: unitedStatesFrameworkTrend,
+      languageTrend: unitedStatesLanguageTrend,
+    },
+    cities: [
+      {
+        id: 19,
+        cityName: "WashingtonDC",
+        population: 7615000,
+        description:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa ipsum perspiciatis ea voluptate consequuntur, ut ipsam impedit a fugiat, recusandae, sint natus expedita sequi nisi vero. Harum cumque iusto numquam.",
+        images: [washington1, washington2, washington3],
+      },
+
+      {
+        id: 20,
+        cityName: "New York",
+        population: 8419000,
+        description:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa ipsum perspiciatis ea voluptate consequuntur, ut ipsam impedit a fugiat, recusandae, sint natus expedita sequi nisi vero. Harum cumque iusto numquam.",
+        images: [newYork1, newYork2, newYork3],
+      },
+      {
+        id: 21,
+        cityName: "Los Angeles",
+        population: 3967000,
+        description:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa ipsum perspiciatis ea voluptate consequuntur, ut ipsam impedit a fugiat, recusandae, sint natus expedita sequi nisi vero. Harum cumque iusto numquam.",
+        images: [losAngeles1, losAngeles2, losAngeles3],
       },
     ],
   },

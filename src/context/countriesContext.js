@@ -28,7 +28,7 @@ const CountriesContextProvider = ({ children }) => {
   /*************** Search *******************/
   const searchCountry = async (value) => {
     const response = await fetch(
-      `https://restcountries.com/v3.1/alpha?codes=FRA,DEU,AUT,CHE,ITA&fields=name,capital,population,flags`
+      `https://restcountries.com/v3.1/alpha?codes=USA,CAN,FRA,DEU,AUT,CHE,ITA&fields=name,capital,population,flags`
     );
     const data = await response.json();
     let searchResults = data.filter(
