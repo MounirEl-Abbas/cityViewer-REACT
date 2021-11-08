@@ -44,6 +44,12 @@ const SingleCityContextProvider = ({ children, mapsAPIKey }) => {
       case "Switzerland":
         countryCode = "CH";
         break;
+      case "United States":
+        countryCode = "US";
+        break;
+      case "Canada":
+        countryCode = "CA";
+        break;
       default:
         countryCode = "";
         break;

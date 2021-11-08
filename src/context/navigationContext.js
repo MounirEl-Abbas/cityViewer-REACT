@@ -55,6 +55,5 @@ Poland
 Norway
 Greece
 Netherlands
-Poland
 Spain
 */
